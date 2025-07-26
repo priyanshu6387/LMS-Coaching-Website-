@@ -5,7 +5,7 @@ import Image from 'next/image';
 const courses = [
   {
     title: 'Udaan Batch (Sem-III + Sem-IV) | CS/IT & Allied',
-    image: '/course1.jpg',
+    image: '/images/coursecard1.jpg',
     tags: ['FREE CONTENT', 'TESTS', 'VIDEOS'],
     coupon: 'Extra ₹ 500 coupon discount',
     price: 2898,
@@ -14,7 +14,7 @@ const courses = [
   },
   {
     title: 'Udaan Batch (Sem-III) | CS/IT & Allied',
-    image: '/course2.jpg',
+    image: '/images/coursecard2.webp',
     tags: ['FREE CONTENT', 'VIDEOS', 'FILES'],
     coupon: 'Extra ₹ 500 coupon discount',
     price: 1999,
@@ -23,7 +23,7 @@ const courses = [
   },
   {
     title: 'Udaan Batch (Sem-III + Sem-IV) | EE Allied',
-    image: '/course3.jpg',
+    image: '/images/coursecard3.jpg',
     tags: ['FREE CONTENT', 'TESTS', 'VIDEOS'],
     coupon: 'Extra ₹ 500 coupon discount',
     price: 2898,
