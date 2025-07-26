@@ -16,6 +16,7 @@ const page = () => {
     <FilterCourses/>
     <RecentCourseCard/>
     <FeaturedCourseCard/>
+    
     <Footer/>
     </>
   )
