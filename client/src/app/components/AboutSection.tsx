@@ -13,7 +13,7 @@ const subcategories = [
 
 const AboutSection: React.FC = () => {
   return (
-    <section className="bg-gradient-to-br from-indigo-50 to-emerald-50 py-14 transition-all duration-300 ease-in-out">
+    <section className="bg-gradient-to-br from-indigo-50 to-emerald-50 py-14 mt-16 transition-all duration-300 ease-in-out">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Header Section */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">

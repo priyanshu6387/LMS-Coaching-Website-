@@ -23,7 +23,7 @@ const courses = [
   },
   {
     title: 'Udaan Batch (Sem-III + Sem-IV) | EE Allied',
-    image: '/images/coursecard3.jpg',
+    image: '/images/coursecard3.avif',
     tags: ['FREE CONTENT', 'TESTS', 'VIDEOS'],
     coupon: 'Extra ₹ 500 coupon discount',
     price: 2898,

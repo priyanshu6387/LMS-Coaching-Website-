@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="w-full bg-gradient-to-r from-blue-600 to-emerald-500 shadow-md border-t-2 border-t-blue-800 animate-fade-down">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-blue-600 to-emerald-500 shadow-md border-t-2 border-t-blue-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center transition-all duration-300">
+        <div className="flex justify-between h-16 items-center">
           {/* Left - Logo/Brand */}
           <div className="flex-shrink-0 transition-transform hover:scale-105">
             <Link href="/">
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
             })}
           </div>
 
-          {/* Right - Contact + Login buttons */}
+          {/* Right - Buttons */}
           <div className="flex space-x-3 items-center">
             <Link
               href="/contact"

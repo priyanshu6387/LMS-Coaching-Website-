@@ -4,6 +4,9 @@ import AboutSection from './components/AboutSection'
 import PopularCourses from './components/PopularCourses'
 import FilterCourses from './components/FilterCourses'
 import RecentCourseCard from './components/RecentCourseCard'
+import AllCoursesSection from './components/AllCoursesSection'
+import FeaturedCourseCard from './components/FeaturedCourseCard'
+import Footer from './components/Footer'
 
 
 const page = () => {
@@ -14,6 +17,9 @@ const page = () => {
     <PopularCourses/>
     <FilterCourses/>
     <RecentCourseCard/>
+    <FeaturedCourseCard/>
+    <AllCoursesSection/>
+    <Footer/>
     </>
   )
 }
