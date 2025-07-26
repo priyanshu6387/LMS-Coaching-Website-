@@ -6,6 +6,7 @@ import PopularCourses from '../components/PopularCourses';
 import FilterCourses from '../components/FilterCourses';
 import RecentCourseCard from '../components/RecentCourseCard';
 import FeaturedCourseCard from '../components/FeaturedCourseCard';
+import AllCoursesSection from '../components/AllCoursesSection';
 
 const page = () => {
   return (
@@ -16,7 +17,7 @@ const page = () => {
     <FilterCourses/>
     <RecentCourseCard/>
     <FeaturedCourseCard/>
-    
+    <AllCoursesSection/>
     <Footer/>
     </>
   )
