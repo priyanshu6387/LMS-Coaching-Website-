@@ -6,19 +6,23 @@ import {
   FaInstagram,
   FaPinterestP,
 } from 'react-icons/fa';
-import { HiOutlineLocationMarker, HiOutlineMail, HiOutlinePhone } from 'react-icons/hi';
+import {
+  HiOutlineLocationMarker,
+  HiOutlineMail,
+  HiOutlinePhone,
+} from 'react-icons/hi';
 import { BsDot } from 'react-icons/bs';
 import { LuCalendarDays } from 'react-icons/lu';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-[#c1d3ff] to-[#b4f0d9] text-gray-800 py-14 px-6 sm:px-20 transition-all duration-500">
+    <footer className="bg-gradient-to-br from-[#7aa7ff] to-[#58d1aa] text-gray-800 py-14 px-6 sm:px-20 transition-all duration-500">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
 
         {/* Logo & Intro */}
-        <div className="text-center md:text-left">
+        <div className="text-center mt-[-7vmin] md:text-left">
           <div className="flex flex-col items-center md:items-start space-y-3">
-            <img src="/images/mylms.png" alt="MyLMS" className="w-24 h-auto" />
+            <img src="/images/mylms.png" alt="MyLMS" className="w-30 h-auto" />
             <p className="text-sm mt-[-4vmin] text-gray-700 leading-relaxed transition duration-300 hover:text-gray-900">
               MyLMS tetur sadipscing elitr tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
             </p>
@@ -26,7 +30,7 @@ const Footer = () => {
               {[FaFacebookF, FaTwitter, FaInstagram, FaPinterestP].map((Icon, idx) => (
                 <div
                   key={idx}
-                  className="w-9 h-9 border border-gray-300 rounded-full flex items-center justify-center text-gray-700 hover:text-white hover:bg-yellow-400 transition-all duration-300 transform hover:scale-110"
+                  className="w-9 h-9 border border-gray-500 rounded-full flex items-center justify-center text-gray-700 hover:border-blue-500 transition-all duration-300 transform hover:scale-110"
                 >
                   <Icon size={14} />
                 </div>
@@ -37,7 +41,7 @@ const Footer = () => {
 
         {/* Contact Us */}
         <div>
-          <h3 className="text-lg font-bold text-gray-900 mb-4 transition duration-300 hover:text-yellow-500">
+          <h3 className="text-lg font-bold text-gray-900 mb-4 transition duration-300 hover:text-yellow-400">
             <span className="text-yellow-400">|</span> Contact Us
           </h3>
           <ul className="space-y-3 text-sm">
@@ -58,7 +62,7 @@ const Footer = () => {
 
         {/* News & Blog */}
         <div>
-          <h3 className="text-lg font-bold text-gray-900 mb-4 transition duration-300 hover:text-yellow-500">
+          <h3 className="text-lg font-bold text-gray-900 mb-4 transition duration-300 hover:text-yellow-400">
             <span className="text-yellow-400">|</span> News & Blog
           </h3>
           <ul className="space-y-3 text-sm">
@@ -93,7 +97,7 @@ const Footer = () => {
 
         {/* Courses */}
         <div>
-          <h3 className="text-lg font-bold text-gray-900 mb-4 transition duration-300 hover:text-yellow-500">
+          <h3 className="text-lg font-bold text-gray-900 mb-4 transition duration-300 hover:text-yellow-400">
             <span className="text-yellow-400">|</span> Course
           </h3>
           <ul className="space-y-2 text-sm">

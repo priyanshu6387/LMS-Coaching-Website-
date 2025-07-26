@@ -1,18 +1,23 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar: React.FC = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-blue-600 to-emerald-500 shadow-md border-t-2 border-t-blue-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          {/* Left - Logo/Brand */}
+          {/* Left - Logo */}
           <div className="flex-shrink-0 transition-transform hover:scale-105">
-            <Link href="/">
-              <span className="text-xl font-extrabold text-white tracking-wide transition-transform duration-300 hover:rotate-1">
-                MyLMS
-              </span>
+            <Link href="/" passHref>
+              <Image
+                src="/images/mylms.png" // Ensure the file is inside /public
+                alt="MyLMS Logo"
+                width={160} // increased width
+                height={50} // increased height
+                className="cursor-pointer"
+              />
             </Link>
           </div>
 
