@@ -11,7 +11,7 @@ import {
 const ModernContactForm: React.FC = () => {
   return (
     <section className="py-30 px-10 sm:px-22 bg-gradient-to-br from-indigo-100 to-emerald-100 transition-all duration-300">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <div className="max-w-7xl mt-8 mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         {/* Left Section */}
         <div>
           <h4 className="text-lg font-semibold text-gray-600 mb-2 flex items-center gap-2">
