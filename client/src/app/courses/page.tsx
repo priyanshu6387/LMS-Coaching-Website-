@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PopularCourses from '../components/PopularCourses';
 import FilterCourses from '../components/FilterCourses';
+import RecentCourseCard from '../components/RecentCourseCard';
 
 const page = () => {
   return (
@@ -12,7 +13,7 @@ const page = () => {
     <CoursesHero/>
     <PopularCourses/>
     <FilterCourses/>
-    
+    <RecentCourseCard/>
     <Footer/>
     </>
   )
