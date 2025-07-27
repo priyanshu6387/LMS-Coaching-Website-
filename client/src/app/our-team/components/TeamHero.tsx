@@ -4,8 +4,20 @@ import { motion } from 'framer-motion';
 
 const TeamHero: React.FC = () => {
   return (
-    <section className="w-full bg-gradient-to-br from-blue-200 via-cyan-100 to-green-100 py-34 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
+    <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/ourteamhero.jpg" // Replace with your image path
+          alt="Team Hero Background"
+          className="w-full h-full object-cover"
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-200/80 via-cyan-100/80 to-green-100/80"></div>
+      </div>
+
+      {/* Foreground Content */}
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center text-center px-6 py-38 space-y-6">
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -25 }}
