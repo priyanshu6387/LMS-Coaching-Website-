@@ -51,7 +51,7 @@ const RecordedCourses: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-indigo-100 to-emerald-100 py-20 px-6">
+    <section className="bg-gradient-to-br from-indigo-100 to-emerald-100 py-20 px-22">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-indigo-900 mb-10">
           Recorded Courses
