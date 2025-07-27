@@ -4,8 +4,19 @@ import { motion } from 'framer-motion';
 
 const CoursesHero: React.FC = () => {
   return (
-    <section className="w-full bg-gradient-to-br from-indigo-200 to-emerald-200 py-34 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
+    <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/mycourseshero.jpeg" // 👈 Replace with your actual image path
+          alt="Courses Background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-200/80 to-emerald-200/80" />
+      </div>
+
+      {/* Foreground Text */}
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center text-center px-4 py-36 space-y-6">
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
