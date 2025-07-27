@@ -1,0 +1,37 @@
+# Node.js dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Editor settings
+.vscode/
+
+# Next.js / React / build outputs
+dist/
+build/
+.next/
+out/
+.cache/
+coverage/
+
+# OS system files
+.DS_Store
+Thumbs.db
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Local/Temp files
+*.local
+
+# Project-specific folders to ignore (if needed)
+client/.next/
+client/node_modules/
+server/node_modules/

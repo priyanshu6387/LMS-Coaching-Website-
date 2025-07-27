@@ -7,22 +7,63 @@ const LoginWithOtp: React.FC = () => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [step, setStep] = useState<'email' | 'otp'>('email');
+  const [loading, setLoading] = useState(false);
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    console.log('Sending OTP to:', email);
-    setStep('otp');
+
+    setLoading(true);
+    try {
+      const res = await fetch('http://localhost:5000/send-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      if (res.ok) {
+        alert('OTP sent to your email');
+        setStep('otp');
+      } else {
+        alert('Failed to send OTP');
+      }
+    } catch (error) {
+      alert('Error connecting to server');
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleOtpSubmit = (e: React.FormEvent) => {
+  const handleOtpSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!otp) return;
-    console.log('Verifying OTP:', otp);
+
+    setLoading(true);
+    try {
+      const res = await fetch('http://localhost:5000/verify-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, otp })
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        alert(result.message);
+        // Redirect or set login state here
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      alert('Error verifying OTP');
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-indigo-100 to-emerald-50 flex items-center justify-center px-22 py-12">
+    <section className="min-h-screen bg-gradient-to-br from-indigo-100 to-emerald-50 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left: About MyLMS */}
         <motion.div
@@ -33,7 +74,7 @@ const LoginWithOtp: React.FC = () => {
         >
           <h2 className="text-4xl font-extrabold text-gray-800">About MyLMS</h2>
           <p className="text-gray-700 text-lg leading-relaxed">
-            MyLMS is your gateway to smart, flexible learning. Whether you're a student, teacher, or professional, 
+            MyLMS is your gateway to smart, flexible learning. Whether you're a student, teacher, or professional,
             our platform connects you with the tools you need to succeed.
           </p>
           <ul className="list-disc ml-5 text-gray-700 space-y-1">
@@ -79,11 +120,12 @@ const LoginWithOtp: React.FC = () => {
 
                 <motion.button
                   type="submit"
+                  disabled={loading}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full bg-white text-blue-700 hover:bg-blue-100 font-semibold py-2 rounded-lg transition shadow-md"
+                  className={`w-full bg-white text-blue-700 hover:bg-blue-100 font-semibold py-2 rounded-lg transition shadow-md ${loading ? 'opacity-50' : ''}`}
                 >
-                  Send OTP
+                  {loading ? 'Sending OTP...' : 'Send OTP'}
                 </motion.button>
               </motion.form>
             ) : (
@@ -113,11 +155,12 @@ const LoginWithOtp: React.FC = () => {
 
                 <motion.button
                   type="submit"
+                  disabled={loading}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full bg-white text-green-700 hover:bg-green-100 font-semibold py-2 rounded-lg transition shadow-md"
+                  className={`w-full bg-white text-green-700 hover:bg-green-100 font-semibold py-2 rounded-lg transition shadow-md ${loading ? 'opacity-50' : ''}`}
                 >
-                  Verify OTP & Login
+                  {loading ? 'Verifying...' : 'Verify OTP & Login'}
                 </motion.button>
 
                 <button
