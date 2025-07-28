@@ -9,7 +9,9 @@ connectDB();
 
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
-app.use('/api/courses', require('./routes/courseRoutes')); // 👈 This one is for courses
+app.use('/api/courses', require('./routes/courseRoutes')); 
+
+// 👈 This one is for authentication
 
 app.get('/', (req, res) => {
   res.send('API is running...');
