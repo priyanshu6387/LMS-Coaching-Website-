@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
@@ -8,6 +9,7 @@ import { FaApple } from "react-icons/fa";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 
 export default function RegistrationPage() {
+  const router = useRouter();
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -18,32 +20,59 @@ export default function RegistrationPage() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (form.password !== form.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
 
-    console.log("Registering:", form);
-    // TODO: Connect with backend
+    try {
+      setLoading(true);
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          password: form.password,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.status === 201) {
+        alert(data.message || "Registered successfully!");
+        router.push("/login");
+      } else {
+        alert(data.message || "Registration failed");
+      }
+    } catch (err) {
+      console.error("Registration error:", err);
+      alert("An error occurred during registration.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-[#f9f6ff] to-[#dcd4f7] flex items-center justify-center px-4 py-20">
       <div className="w-full max-w-2xl bg-white rounded-[2rem] p-6 md:p-10 shadow-xl">
-        {/* Heading */}
         <div className="mb-6 text-center">
           <h1 className="text-4xl font-bold text-gray-800">Create Your Account</h1>
           <p className="text-sm text-gray-600 mt-1">Sign up with your email</p>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4 text-gray-800">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -125,13 +154,17 @@ export default function RegistrationPage() {
 
           <button
             type="submit"
-            className="w-full bg-gray-800 text-white py-2.5 rounded-full font-medium hover:bg-gray-900 transition-all"
+            disabled={loading}
+            className={`w-full py-2.5 rounded-full font-medium transition-all ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-gray-800 text-white hover:bg-gray-900"
+            }`}
           >
-            Register
+            {loading ? "Registering..." : "Register"}
           </button>
         </form>
 
-        {/* Social Icons */}
         <div className="flex justify-center gap-4 my-6">
           <button className="bg-white p-3 rounded-full shadow hover:scale-105 transition" aria-label="Signup with Google">
             <FcGoogle className="text-2xl" />
@@ -144,7 +177,6 @@ export default function RegistrationPage() {
           </button>
         </div>
 
-        {/* Login Link */}
         <div className="text-center text-sm text-gray-700">
           Already have an account?{" "}
           <Link href="/login" className="underline hover:text-blue-600 font-medium">
